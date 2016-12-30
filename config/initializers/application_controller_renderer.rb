@@ -4,3 +4,4 @@
 #   http_host: 'example.org',
 #   https: false
 # )
+ActionController::Parameters.permit_all_parameters = true
