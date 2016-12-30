@@ -1,6 +1,6 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < ApplicationController
   def create
     form = Business::Users::RegistrationForm.new params.require(:registration)
-    form.auth
+    respond_with form.auth
   end
 end

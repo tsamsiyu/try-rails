@@ -30,8 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use Devise to manage user authorization
-gem 'devise'
+# Use virtus for Form Object
+gem 'virtus'
+
+# Use responders to handle the transforming of data from controllers
+gem 'responders'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

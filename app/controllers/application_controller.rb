@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   respond_to :xml, :json
 
-  # protect_from_forgery with: :exception
   before_action :authenticate
   before_action :recognize_content_type
 

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: [:registrations, :sessions, :passwords]
-  devise_scope :user do
-    post 'users/sign-up', to: 'users/registrations#create', as: :registration
-  end
+  post '/register', to: 'users/registrations#create', as: :registration
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

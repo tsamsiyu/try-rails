@@ -2,8 +2,8 @@ module ActionController
   class Responder
     # TODO: need to add merging with options
     def to_json
-      if resource.errors.messages.any?
-        controller.render json: resource.errors
+      if has_errors?
+          controller.render json: resource.errors
       else
         controller.render json: resource
       end
@@ -11,7 +11,7 @@ module ActionController
 
     # TODO: need to add merging with options
     def to_xml
-      if resource.errors.messages.any?
+      if has_errors?
         controller.render xml: resource.errors
       else
         controller.render xml: resource
