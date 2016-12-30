@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  encoding: unicode
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: inauto_dev
+  username: root_ts
+  password: 1qazxsw2
+
+test:
+  <<: *default
+  database: inauto_test
+  username: root_ts
+  password: 1qazxsw2
+
+production:
+  <<: *default
+  database: inauto_prod
+  username: root_ts
+  password: 1qazxsw2
