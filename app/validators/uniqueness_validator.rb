@@ -8,8 +8,14 @@ class UniquenessValidator < ActiveRecord::Validations::UniquenessValidator
 
   def validate_each(record, attribute, value)
     if record.kind_of? Components::FormObject
-      record = record.model
+      attribute_errors = record.model.errors[attribute]
+      record.model.errors.delete attribute
+      res = super record.model, attribute, value
+      record.errors.add(attribute, record.model.errors[attribute])
+      record.model.errors.add(attribute, attribute_errors)
+      res
+    else
+      super
     end
-    super record, attribute, value
   end
 end
